@@ -1,18 +1,4 @@
 // import {v4 as uuidv4} from "uuid"
-import mysql, {}from 'mysql2';
-import "reflect-metadata"
-import { DataSource } from "typeorm"
-
-const AppDataSource = new DataSource({
-    type: "mysql",
-    host: "localhost",
-    port: 3306,
-    username: "root",
-    password: "Indrani8&",
-    database: "db_a6d03c_pgmgmt",
-    synchronize: true,
-    logging: false,
-})
 
 type Task = {   
   // id:string,
