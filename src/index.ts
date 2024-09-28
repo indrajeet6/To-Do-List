@@ -1,12 +1,26 @@
-import {v4 as uuidv4} from "uuid"
+// import {v4 as uuidv4} from "uuid"
+import mysql, {}from 'mysql2';
+import "reflect-metadata"
+import { DataSource } from "typeorm"
+
+const AppDataSource = new DataSource({
+    type: "mysql",
+    host: "localhost",
+    port: 3306,
+    username: "root",
+    password: "Indrani8&",
+    database: "db_a6d03c_pgmgmt",
+    synchronize: true,
+    logging: false,
+})
 
 type Task = {   
-  id:string,
+  // id:string,
+  id:number,
   title:string,
   completed:boolean,
   createdAt:Date
 }
-
 const list = document.querySelector<HTMLUListElement>("#list")
 const form = document.getElementById("new-task-form") as HTMLFormElement | null
 const input = document.querySelector<HTMLInputElement>("#new-task-title")
@@ -19,7 +33,8 @@ form?.addEventListener("submit", e => {
   if (input?.value=="" || input?.value==null) return 
   
   const newTask:Task = {
-    id: uuidv4(),
+    // id: uuidv4(),
+    id: Math.random(),
     title: input.value,
     completed:false,
     createdAt: new Date()
